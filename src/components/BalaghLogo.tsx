@@ -3,9 +3,9 @@ import { cn } from "@/lib/cn";
 import { BALAGH_LOGO_PATH } from "@/lib/brand";
 
 const sizeStyles = {
-  xs: "h-7 w-[5.25rem]",
-  sm: "h-9 w-[6.75rem]",
-  md: "h-11 w-[8.25rem]",
+  xs: "h-14 w-[10.5rem]",
+  sm: "h-14 w-[10.5rem]",
+  md: "h-14 w-[10.5rem]",
   lg: "h-14 w-[10.5rem]",
 } as const;
 
