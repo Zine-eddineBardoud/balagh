@@ -126,7 +126,7 @@ export type TranslationKeys = {
 const en: TranslationKeys = {
   langLabel: "Language",
   home: {
-    appName: "Car Impound",
+    appName: "Balagh",
     tagline: "Smart towing,",
     taglineHighlight: "instant clarity",
     subtitle:
@@ -254,7 +254,7 @@ const en: TranslationKeys = {
 const fr: TranslationKeys = {
   langLabel: "Langue",
   home: {
-    appName: "Fourrière",
+    appName: "Balagh",
     tagline: "Remorquage intelligent,",
     taglineHighlight: "clarté immédiate",
     subtitle:
@@ -389,7 +389,7 @@ const fr: TranslationKeys = {
 const ar: TranslationKeys = {
   langLabel: "اللغة",
   home: {
-    appName: "حجز المركبات",
+    appName: "Balagh",
     tagline: "سحب ذكي،",
     taglineHighlight: "وضوح فوري",
     subtitle:

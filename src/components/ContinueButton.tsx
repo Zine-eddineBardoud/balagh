@@ -32,10 +32,10 @@ export function ContinueButton({
   );
 
   const styles = {
-    blue: "gradient-officer text-white shadow-blue-600/25",
-    green: "gradient-owner text-white shadow-emerald-900/20",
+    blue: "gradient-primary text-white shadow-[var(--shadow-primary)]",
+    green: "gradient-primary text-white shadow-[var(--shadow-primary)]",
     "outline-green":
-      "border-2 border-[var(--owner)] bg-white text-[var(--owner)] shadow-none",
+      "border-2 border-primary bg-white text-primary shadow-none",
   }[variant];
 
   const content = (
@@ -46,7 +46,7 @@ export function ContinueButton({
         <>
           {label}
           {showArrow && (
-            <ArrowRight className="h-5 w-5" strokeWidth={2.5} />
+            <ArrowRight className="h-5 w-5 rtl:rotate-180" strokeWidth={2.5} />
           )}
         </>
       )}

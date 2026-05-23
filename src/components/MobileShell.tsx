@@ -31,12 +31,10 @@ export function MobileShell({
   const label = backLabel ?? t.common.back;
 
   const bg = dark
-    ? "bg-[#0a0a0c]"
-    : gradient === "officer"
+    ? "bg-dark"
+    : gradient
       ? "gradient-page"
-      : gradient === "owner"
-        ? "gradient-page-owner"
-        : "bg-[var(--background)]";
+      : "bg-light";
 
   const withFooter = Boolean(footer);
 
@@ -66,7 +64,7 @@ export function MobileShell({
                   "btn-press inline-flex w-fit items-center gap-0.5 rounded-full py-1.5 pe-3 text-sm font-semibold",
                   dark
                     ? "text-white/75 hover:text-white"
-                    : "text-slate-600 hover:text-slate-900",
+                    : "text-muted hover:text-dark",
                 )}
               >
                 <ChevronLeft

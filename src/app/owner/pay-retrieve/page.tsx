@@ -86,17 +86,17 @@ export default function PayRetrievePage() {
 
             <div className="card-surface animate-fade-up stagger-3 p-4">
               <div className="flex items-start gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-[var(--owner)]">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-muted text-primary">
                   <MapPinned className="h-5 w-5" strokeWidth={2} />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="font-semibold text-slate-900">
+                  <p className="font-semibold text-dark">
                     {selectedGarage.name}
                   </p>
-                  <p className="mt-0.5 text-sm font-bold text-slate-800">
+                  <p className="mt-0.5 text-sm font-bold text-dark">
                     {selectedGarage.address}
                   </p>
-                  <p className="mt-2 flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                  <p className="mt-2 flex items-center gap-1.5 text-xs font-medium text-muted">
                     <Clock className="h-3.5 w-3.5" />
                     {selectedGarage.openHours}
                   </p>
@@ -115,11 +115,11 @@ export default function PayRetrievePage() {
             type="button"
             onClick={handlePay}
             disabled={loading}
-            className="btn-press animate-fade-up stagger-5 flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-[var(--owner)] bg-white py-4 font-bold text-[var(--owner)] shadow-sm disabled:opacity-70"
+            className="btn-press animate-fade-up stagger-5 flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-primary bg-white py-4 font-bold text-primary shadow-sm disabled:opacity-70"
           >
             {loading ? (
               <span className="flex items-center gap-2">
-                <span className="h-5 w-5 animate-spin rounded-full border-2 border-[var(--owner)] border-t-transparent" />
+                <span className="h-5 w-5 animate-spin rounded-full border-2 border-primary border-t-transparent" />
                 {t.owner.processing}
               </span>
             ) : (

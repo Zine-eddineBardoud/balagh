@@ -18,7 +18,7 @@ export function PageHeader({
       <h1
         className={cn(
           "text-[1.65rem] font-bold tracking-tight",
-          light ? "text-white" : "text-slate-900",
+          light ? "text-white" : "text-dark",
         )}
       >
         {title}
@@ -27,7 +27,7 @@ export function PageHeader({
         <p
           className={cn(
             "mt-1 text-sm leading-relaxed",
-            light ? "text-white/70" : "text-slate-500",
+            light ? "text-white/70" : "text-muted",
           )}
         >
           {subtitle}

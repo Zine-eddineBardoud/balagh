@@ -24,7 +24,7 @@ export default function OfficerScanPage() {
 
   return (
     <MobileShell dark className="relative !px-0 !pt-0" hideLang>
-      <div className="flex min-h-dvh flex-col bg-[#0a0a0c]">
+      <div className="flex min-h-dvh flex-col bg-dark">
         <div className="flex items-center justify-between px-5 pt-[max(1rem,env(safe-area-inset-top))]">
           <Link
             href="/"
@@ -62,7 +62,7 @@ export default function OfficerScanPage() {
           <button
             type="button"
             onClick={handleCapture}
-            className="btn-press gradient-officer flex w-full items-center justify-center gap-2.5 rounded-2xl py-4 text-base font-bold text-white shadow-lg shadow-blue-900/40"
+            className="btn-press gradient-primary flex w-full items-center justify-center gap-2.5 rounded-2xl py-4 text-base font-bold text-white shadow-[var(--shadow-primary)]"
           >
             <Camera className="h-5 w-5" />
             {t.officer.capturePhoto}

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { Providers } from "@/components/Providers";
+import { BALAGH_LOGO_PATH } from "@/lib/brand";
 import "./globals.css";
 
 const geist = Geist({
@@ -9,12 +10,16 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Car Impound",
+  title: "Balagh",
   description: "Smart towing management & owner notification",
+  icons: {
+    icon: BALAGH_LOGO_PATH,
+    apple: BALAGH_LOGO_PATH,
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Car Impound",
+    title: "Balagh",
   },
 };
 
@@ -23,7 +28,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#f4f6f8",
+  themeColor: "#2563EB",
 };
 
 export default function RootLayout({
@@ -33,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable} h-full`}>
-      <body className="min-h-dvh bg-[var(--background)] font-sans text-slate-900 antialiased">
+      <body className="min-h-dvh bg-light font-sans text-dark antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

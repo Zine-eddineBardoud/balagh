@@ -1,4 +1,4 @@
-# Car Impound — Smart Towing Management & Owner Notification System
+# Balagh — Smart Towing Management & Owner Notification System
 
 **Presentation deck** · SupMTI — Projet Interdisciplinaire  
 **Authors:** Bardoud Zine-eddine · Ait Boutaal Mohamed  
@@ -211,7 +211,7 @@ Open http://localhost:3000 — use Chrome device mode (iPhone).
 
 # One-slide elevator pitch (30 seconds)
 
-> When a car is towed today, owners often discover an empty space with no information. Our **Car Impound** app gives officers a mobile workflow to scan the plate, document the violation with GPS proof, and assign a garage — while owners get an instant notification, see evidence, navigate to the lot, pay online, and receive a release code. We built a **mobile-first Next.js prototype** that simulates the full journey for both roles in one linked demo.
+> When a car is towed today, owners often discover an empty space with no information. Our **Balagh** app gives officers a mobile workflow to scan the plate, document the violation with GPS proof, and assign a garage — while owners get an instant notification, see evidence, navigate to the lot, pay online, and receive a release code. We built a **mobile-first Next.js prototype** that simulates the full journey for both roles in one linked demo.
 
 ---
 

@@ -53,7 +53,7 @@ export function PhotoPlaceholder({ showAdd = false, onAdd }: PhotoPlaceholderPro
         <button
           type="button"
           onClick={onAdd}
-          className="btn-press flex aspect-square flex-1 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-white text-slate-400 transition-colors hover:border-blue-300 hover:text-blue-500"
+          className="btn-press flex aspect-square flex-1 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-white text-muted transition-colors hover:border-primary/40 hover:text-primary"
           aria-label={t.common.add}
         >
           <Plus className="h-7 w-7" strokeWidth={1.5} />

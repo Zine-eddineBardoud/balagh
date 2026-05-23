@@ -41,7 +41,7 @@ export default function OwnerHomePage() {
         isPaid ? (
           <Link
             href="/owner/pay-retrieve"
-            className="btn-press flex w-full items-center justify-center rounded-2xl border-2 border-[var(--owner)] bg-white py-4 text-base font-bold text-[var(--owner)]"
+            className="btn-press flex w-full items-center justify-center rounded-2xl border-2 border-primary bg-white py-4 text-base font-bold text-primary"
           >
             {t.owner.viewReleaseCode}
           </Link>
@@ -89,7 +89,7 @@ export default function OwnerHomePage() {
         <section className="animate-fade-up stagger-4">
           <SectionTitle
             action={
-              <span className="text-[10px] font-semibold text-slate-400">
+              <span className="text-[10px] font-semibold text-muted">
                 {activeImpound.photos.length} {t.common.photos}
               </span>
             }

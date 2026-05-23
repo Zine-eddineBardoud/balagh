@@ -28,24 +28,24 @@ export function GarageOption({
       className={cn(
         "btn-press flex w-full items-center gap-3 rounded-2xl border-2 p-4 text-start transition-all",
         selected
-          ? "border-blue-500 bg-blue-50/80 shadow-sm shadow-blue-500/10"
-          : "border-slate-200 bg-white hover:border-slate-300",
+          ? "border-primary bg-primary-muted/60 shadow-sm shadow-primary/10"
+          : "border-slate-200 bg-white hover:border-primary/40",
       )}
     >
       <span
         className={cn(
           "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
-          selected ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-500",
+          selected ? "bg-primary text-white" : "bg-light text-muted",
         )}
       >
         <MapPin className="h-5 w-5" strokeWidth={2} />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="truncate text-xs font-medium text-slate-500">{name}</p>
-        <p className="mt-0.5 font-bold text-slate-900">
+        <p className="truncate text-xs font-medium text-muted">{name}</p>
+        <p className="mt-0.5 font-bold text-dark">
           {distanceKm} {t.common.km}
-          <span className="font-normal text-slate-500"> · </span>
-          <span className={isOpen ? "text-emerald-600" : "text-rose-500"}>
+          <span className="font-normal text-muted"> · </span>
+          <span className={isOpen ? "text-primary" : "text-rose-500"}>
             {isOpen ? t.common.openNow : t.common.closed}
           </span>
         </p>
@@ -53,9 +53,7 @@ export function GarageOption({
       <span
         className={cn(
           "flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-all",
-          selected
-            ? "border-blue-600 bg-blue-600"
-            : "border-slate-300 bg-white",
+          selected ? "border-primary bg-primary" : "border-slate-300 bg-white",
         )}
         aria-hidden
       >

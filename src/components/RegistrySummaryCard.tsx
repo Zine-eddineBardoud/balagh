@@ -57,31 +57,27 @@ export function RegistrySummaryCard({
 
   return (
     <div className="card-surface animate-fade-up stagger-3 overflow-hidden">
-      <div className="border-b border-slate-100 bg-slate-50/80 px-4 py-3">
-        <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
+      <div className="border-b border-slate-100 bg-light px-4 py-3">
+        <p className="text-xs font-bold uppercase tracking-wide text-muted">
           {t.officer.registryTitle}
         </p>
-        <p className="mt-0.5 text-[11px] text-slate-400">{t.officer.registryHint}</p>
+        <p className="mt-0.5 text-[11px] text-muted">{t.officer.registryHint}</p>
       </div>
-      <ul
-        className={
-          compact ? "divide-y divide-slate-100" : "divide-y divide-slate-100"
-        }
-      >
+      <ul className={compact ? "divide-y divide-slate-100" : "divide-y divide-slate-100"}>
         {rows.map((row) => (
           <li key={row.label} className="flex gap-3 px-4 py-3.5">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-muted text-primary">
               <row.icon className="h-4 w-4" strokeWidth={2} />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+              <p className="text-[10px] font-bold uppercase tracking-wide text-muted">
                 {row.label}
               </p>
-              <p className="mt-0.5 truncate text-sm font-bold text-slate-900">
+              <p className="mt-0.5 truncate text-sm font-bold text-dark">
                 {row.value}
               </p>
               {row.sub && (
-                <p className="mt-0.5 flex items-center gap-1 text-xs text-slate-500">
+                <p className="mt-0.5 flex items-center gap-1 text-xs text-muted">
                   {row.showPhone && (
                     <Phone className="h-3 w-3 shrink-0 opacity-60" />
                   )}

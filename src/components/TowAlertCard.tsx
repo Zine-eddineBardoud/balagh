@@ -26,8 +26,8 @@ export function TowAlertCard({
   return (
     <article
       className={cn(
-        "animate-fade-up stagger-2 relative overflow-hidden rounded-3xl p-6 text-white shadow-xl shadow-emerald-900/25",
-        "gradient-owner",
+        "animate-fade-up stagger-2 relative overflow-hidden rounded-3xl p-6 text-white shadow-[var(--shadow-primary)]",
+        "gradient-primary",
         className,
       )}
     >
@@ -37,7 +37,7 @@ export function TowAlertCard({
           <AlertTriangle className="h-5 w-5" strokeWidth={2.5} />
         </span>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-emerald-100/90">
+          <p className="text-xs font-semibold uppercase tracking-wider text-white/80">
             {t.owner.activeImpound}
           </p>
           <h2 className="mt-0.5 text-xl font-bold leading-tight">
@@ -50,17 +50,17 @@ export function TowAlertCard({
           <Car className="h-4 w-4 opacity-80" />
           {plate}
         </p>
-        <p className="text-sm font-medium text-emerald-50/95">
+        <p className="text-sm font-medium text-white/95">
           {vehicleModel}
           {vehicleColor ? ` · ${vehicleColor}` : ""}
         </p>
         {scanAddress && (
-          <p className="text-xs text-emerald-100/85">
+          <p className="text-xs text-white/75">
             {t.owner.towedFrom} · {scanAddress}
           </p>
         )}
       </div>
-      <time className="mt-4 block text-end text-xs font-medium text-emerald-100/80">
+      <time className="mt-4 block text-end text-xs font-medium text-white/70">
         {towedAt}
       </time>
     </article>

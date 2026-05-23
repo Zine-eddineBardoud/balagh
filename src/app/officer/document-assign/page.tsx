@@ -62,7 +62,7 @@ export default function DocumentAssignPage() {
         <section className="animate-fade-up stagger-3">
           <SectionTitle>{t.officer.violationPhotos}</SectionTitle>
           <PhotoPlaceholder showAdd />
-          <p className="mt-2 text-[11px] text-slate-400">{t.officer.gpsAuto}</p>
+          <p className="mt-2 text-[11px] text-muted">{t.officer.gpsAuto}</p>
         </section>
 
         <section className="animate-fade-up stagger-4">

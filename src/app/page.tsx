@@ -1,6 +1,7 @@
 "use client";
 
-import { Car, Shield, User } from "lucide-react";
+import { Shield, User } from "lucide-react";
+import { BalaghLogo } from "@/components/BalaghLogo";
 import { RoleCard } from "@/components/RoleCard";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/context/language-context";
@@ -14,19 +15,14 @@ export default function HomePage() {
         <LanguageSwitcher />
       </div>
 
-      <header className="animate-fade-up mb-10 text-center">
-        <span className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg shadow-blue-500/15 ring-1 ring-slate-200/80">
-          <Car className="h-7 w-7 text-blue-600" strokeWidth={2} />
-        </span>
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
-          {t.home.appName}
-        </p>
-        <h1 className="mt-2 text-[1.75rem] font-bold leading-tight tracking-tight text-slate-900">
+      <header className="animate-fade-up mb-8 text-center">
+        <BalaghLogo priority size="sm" className="mb-4" />
+        <h1 className="text-[1.75rem] font-bold leading-tight tracking-tight text-dark">
           {t.home.tagline}
           <br />
-          <span className="text-blue-600">{t.home.taglineHighlight}</span>
+          <span className="text-primary">{t.home.taglineHighlight}</span>
         </h1>
-        <p className="mx-auto mt-3 max-w-[260px] text-sm leading-relaxed text-slate-500">
+        <p className="mx-auto mt-3 max-w-[260px] text-sm leading-relaxed text-muted">
           {t.home.subtitle}
         </p>
       </header>
@@ -38,7 +34,7 @@ export default function HomePage() {
           description={t.home.officerDesc}
           icon={Shield}
           accent="officer"
-          steps={t.home.officerSteps}
+          steps={[...t.home.officerSteps]}
           delay="stagger-1"
         />
         <RoleCard
@@ -47,12 +43,12 @@ export default function HomePage() {
           description={t.home.ownerDesc}
           icon={User}
           accent="owner"
-          steps={t.home.ownerSteps}
+          steps={[...t.home.ownerSteps]}
           delay="stagger-2"
         />
       </div>
 
-      <p className="mt-auto pt-10 text-center text-[11px] font-medium text-slate-400">
+      <p className="mt-auto pt-10 text-center text-[11px] font-medium text-muted">
         {t.home.footer}
       </p>
     </div>

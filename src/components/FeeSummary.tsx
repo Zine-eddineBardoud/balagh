@@ -10,13 +10,13 @@ export function FeeSummary() {
 
   return (
     <div className="card-surface animate-fade-up stagger-4 space-y-3 p-5">
-      <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">
+      <h3 className="text-xs font-bold uppercase tracking-wide text-muted">
         {t.owner.feeBreakdown}
       </h3>
-      <div className="space-y-2.5 text-sm text-slate-600">
+      <div className="space-y-2.5 text-sm text-muted">
         <div className="flex justify-between">
           <span>{t.owner.towingFee}</span>
-          <span className="font-bold text-slate-900">
+          <span className="font-bold text-dark">
             {fees.towingFee} {fees.currency}
           </span>
         </div>
@@ -24,15 +24,15 @@ export function FeeSummary() {
           <span>
             {t.owner.storageDay.replace("{n}", String(fees.storageDays))}
           </span>
-          <span className="font-bold text-slate-900">
+          <span className="font-bold text-dark">
             {storage} {fees.currency}
           </span>
         </div>
       </div>
       <hr className="border-slate-100" />
       <div className="flex justify-between text-base">
-        <span className="font-semibold text-slate-900">{t.owner.totalDue}</span>
-        <span className="font-extrabold text-slate-900">
+        <span className="font-semibold text-dark">{t.owner.totalDue}</span>
+        <span className="font-extrabold text-dark">
           {total} {fees.currency}
         </span>
       </div>

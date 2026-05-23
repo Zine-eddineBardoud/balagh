@@ -20,13 +20,13 @@ export function LicensePlateCard({
   return (
     <div
       className={cn(
-        "animate-fade-up stagger-2 overflow-hidden rounded-2xl shadow-lg shadow-blue-900/20",
-        "gradient-officer p-[1px]",
+        "animate-fade-up stagger-2 overflow-hidden rounded-2xl shadow-[var(--shadow-primary)]",
+        "gradient-primary p-[1px]",
       )}
     >
-      <div className="rounded-[15px] bg-gradient-to-br from-blue-600/90 to-blue-800 px-5 py-6">
+      <div className="rounded-[15px] bg-gradient-to-br from-primary to-primary-hover px-5 py-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm font-medium text-blue-100">
+          <div className="flex items-center gap-2 text-sm font-medium text-white/90">
             <Car className="h-4 w-4" strokeWidth={2} />
             {t.common.licensePlate}
           </div>
