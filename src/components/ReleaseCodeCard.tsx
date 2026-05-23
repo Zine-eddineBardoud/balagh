@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { useLanguage } from "@/context/language-context";
 
 interface ReleaseCodeCardProps {
   code: string;
 }
 
 export function ReleaseCodeCard({ code }: ReleaseCodeCardProps) {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {
@@ -26,8 +28,10 @@ export function ReleaseCodeCard({ code }: ReleaseCodeCardProps) {
       <span className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600 text-white">
         <Check className="h-6 w-6" strokeWidth={3} />
       </span>
-      <p className="text-sm font-semibold text-emerald-800">Payment confirmed</p>
-      <p className="mt-1 text-xs text-slate-500">Your release code</p>
+      <p className="text-sm font-semibold text-emerald-800">
+        {t.owner.paymentConfirmed}
+      </p>
+      <p className="mt-1 text-xs text-slate-500">{t.owner.yourReleaseCode}</p>
       <p className="mt-3 font-mono text-3xl font-extrabold tracking-[0.2em] text-emerald-900">
         {code}
       </p>
@@ -43,16 +47,16 @@ export function ReleaseCodeCard({ code }: ReleaseCodeCardProps) {
       >
         {copied ? (
           <>
-            <Check className="h-4 w-4" /> Copied
+            <Check className="h-4 w-4" /> {t.owner.copied}
           </>
         ) : (
           <>
-            <Copy className="h-4 w-4" /> Copy code
+            <Copy className="h-4 w-4" /> {t.owner.copyCode}
           </>
         )}
       </button>
       <p className="mt-4 text-xs leading-relaxed text-slate-500">
-        Show this code at the garage to retrieve your vehicle
+        {t.owner.showCodeAtGarage}
       </p>
     </div>
   );

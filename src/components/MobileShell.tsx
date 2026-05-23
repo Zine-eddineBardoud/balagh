@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/context/language-context";
 
 interface MobileShellProps {
   children: React.ReactNode;
@@ -10,17 +14,22 @@ interface MobileShellProps {
   dark?: boolean;
   gradient?: "officer" | "owner" | false;
   footer?: React.ReactNode;
+  hideLang?: boolean;
 }
 
 export function MobileShell({
   children,
   className = "",
   backHref,
-  backLabel = "Back",
+  backLabel,
   dark = false,
   gradient = false,
   footer,
+  hideLang = false,
 }: MobileShellProps) {
+  const { t } = useLanguage();
+  const label = backLabel ?? t.common.back;
+
   const bg = dark
     ? "bg-[#0a0a0c]"
     : gradient === "officer"
@@ -48,20 +57,33 @@ export function MobileShell({
           className,
         )}
       >
-        {backHref && (
-          <Link
-            href={backHref}
-            className={cn(
-              "btn-press mb-4 inline-flex w-fit shrink-0 items-center gap-0.5 rounded-full py-1.5 pr-3 text-sm font-semibold",
-              dark
-                ? "text-white/75 hover:text-white"
-                : "text-slate-600 hover:text-slate-900",
+        {(!hideLang || backHref) && (
+          <div className="mb-4 flex shrink-0 items-center justify-between gap-2">
+            {backHref ? (
+              <Link
+                href={backHref}
+                className={cn(
+                  "btn-press inline-flex w-fit items-center gap-0.5 rounded-full py-1.5 pe-3 text-sm font-semibold",
+                  dark
+                    ? "text-white/75 hover:text-white"
+                    : "text-slate-600 hover:text-slate-900",
+                )}
+              >
+                <ChevronLeft
+                  className="h-5 w-5 rtl:rotate-180"
+                  strokeWidth={2.5}
+                />
+                {label}
+              </Link>
+            ) : (
+              <div />
             )}
-          >
-            <ChevronLeft className="h-5 w-5" strokeWidth={2.5} />
-            {backLabel}
-          </Link>
+            {!hideLang && (
+              <LanguageSwitcher variant={dark ? "dark" : "pill"} />
+            )}
+          </div>
         )}
+
         <main
           className={cn(
             "flex flex-1 flex-col",

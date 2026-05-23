@@ -1,5 +1,8 @@
+"use client";
+
 import { AlertTriangle, Car } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { useLanguage } from "@/context/language-context";
 
 interface TowAlertCardProps {
   plate: string;
@@ -18,6 +21,8 @@ export function TowAlertCard({
   towedAt,
   className,
 }: TowAlertCardProps) {
+  const { t } = useLanguage();
+
   return (
     <article
       className={cn(
@@ -26,17 +31,17 @@ export function TowAlertCard({
         className,
       )}
     >
-      <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10" />
+      <div className="pointer-events-none absolute -end-8 -top-8 h-32 w-32 rounded-full bg-white/10" />
       <div className="flex items-start gap-3">
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
           <AlertTriangle className="h-5 w-5" strokeWidth={2.5} />
         </span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-emerald-100/90">
-            Active impound
+            {t.owner.activeImpound}
           </p>
           <h2 className="mt-0.5 text-xl font-bold leading-tight">
-            Your car was towed
+            {t.owner.carTowed}
           </h2>
         </div>
       </div>
@@ -50,10 +55,12 @@ export function TowAlertCard({
           {vehicleColor ? ` · ${vehicleColor}` : ""}
         </p>
         {scanAddress && (
-          <p className="text-xs text-emerald-100/85">Towed from · {scanAddress}</p>
+          <p className="text-xs text-emerald-100/85">
+            {t.owner.towedFrom} · {scanAddress}
+          </p>
         )}
       </div>
-      <time className="mt-4 block text-right text-xs font-medium text-emerald-100/80">
+      <time className="mt-4 block text-end text-xs font-medium text-emerald-100/80">
         {towedAt}
       </time>
     </article>

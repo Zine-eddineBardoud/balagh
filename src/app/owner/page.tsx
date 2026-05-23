@@ -11,16 +11,19 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { ContinueButton } from "@/components/ContinueButton";
 import { OwnerEmptyState } from "@/components/OwnerEmptyState";
 import { useImpound } from "@/context/impound-context";
+import { useLanguage } from "@/context/language-context";
+import { statusLabel, violationLabel } from "@/i18n/translations";
 
 export default function OwnerHomePage() {
   const { activeImpound, hasActiveImpound, isPaid } = useImpound();
+  const { t } = useLanguage();
 
   if (!hasActiveImpound || !activeImpound) {
     return (
-      <MobileShell gradient="owner" backHref="/" backLabel="Home">
+      <MobileShell gradient="owner" backHref="/" backLabel={t.common.home}>
         <PageHeader
-          title="My vehicle"
-          subtitle="Your impound details will appear here after an officer confirms a tow."
+          title={t.owner.myVehicle}
+          subtitle={t.owner.myVehicleEmptySubtitle}
         />
         <div className="mt-8">
           <OwnerEmptyState />
@@ -33,20 +36,20 @@ export default function OwnerHomePage() {
     <MobileShell
       gradient="owner"
       backHref="/"
-      backLabel="Home"
+      backLabel={t.common.home}
       footer={
         isPaid ? (
           <Link
             href="/owner/pay-retrieve"
             className="btn-press flex w-full items-center justify-center rounded-2xl border-2 border-[var(--owner)] bg-white py-4 text-base font-bold text-[var(--owner)]"
           >
-            View release code
+            {t.owner.viewReleaseCode}
           </Link>
         ) : (
           <ContinueButton
             href="/owner/pay-retrieve"
             variant="green"
-            label="Pay & retrieve vehicle"
+            label={t.owner.payAndRetrieve}
           />
         )
       }
@@ -54,13 +57,13 @@ export default function OwnerHomePage() {
       <div className="mb-4 flex items-center gap-2 rounded-full bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200/80 animate-fade-up">
         <Bell className="h-4 w-4 shrink-0 animate-pulse" />
         <p className="text-xs font-semibold">
-          New notification · Towed {activeImpound.towedAt}
+          {t.owner.notification} · {t.owner.towedAt} {activeImpound.towedAt}
         </p>
       </div>
 
       <PageHeader
-        title="My vehicle"
-        subtitle="Review violation details and evidence before payment."
+        title={t.owner.myVehicle}
+        subtitle={t.owner.myVehicleSubtitle}
       />
 
       <div className="mt-6 flex flex-col gap-5">
@@ -73,19 +76,25 @@ export default function OwnerHomePage() {
         />
 
         <div className="flex gap-3 animate-fade-up stagger-3">
-          <InfoCard label="Violation" value={activeImpound.violation} />
-          <InfoCard label="Status" value={activeImpound.status} />
+          <InfoCard
+            label={t.common.violation}
+            value={violationLabel(t, activeImpound.violation)}
+          />
+          <InfoCard
+            label={t.common.status}
+            value={statusLabel(t, activeImpound.status)}
+          />
         </div>
 
         <section className="animate-fade-up stagger-4">
           <SectionTitle
             action={
               <span className="text-[10px] font-semibold text-slate-400">
-                {activeImpound.photos.length} photos
+                {activeImpound.photos.length} {t.common.photos}
               </span>
             }
           >
-            Evidence photos
+            {t.owner.evidencePhotos}
           </SectionTitle>
           <PhotoPlaceholder />
         </section>

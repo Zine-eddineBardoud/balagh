@@ -1,13 +1,17 @@
+"use client";
+
 import { cn } from "@/lib/cn";
+import { useLanguage } from "@/context/language-context";
 
 interface StepProgressProps {
   current: 1 | 2 | 3;
   variant?: "officer" | "owner";
 }
 
-const labels = ["Scan", "Details", "Assign"];
-
 export function StepProgress({ current, variant = "officer" }: StepProgressProps) {
+  const { t } = useLanguage();
+  const labels = [t.steps.scan, t.steps.details, t.steps.assign];
+
   const activeLine =
     variant === "officer" ? "bg-blue-500" : "bg-[var(--owner)]";
   const activeDot =
@@ -19,12 +23,12 @@ export function StepProgress({ current, variant = "officer" }: StepProgressProps
     <nav aria-label="Progress" className="animate-fade-up mb-6">
       <div className="relative flex justify-between">
         <div
-          className="absolute left-[16%] right-[16%] top-4 h-0.5 -translate-y-1/2 rounded-full bg-slate-200"
+          className="absolute start-[16%] end-[16%] top-4 h-0.5 -translate-y-1/2 rounded-full bg-slate-200"
           aria-hidden
         />
         <div
           className={cn(
-            "absolute left-[16%] top-4 h-0.5 -translate-y-1/2 rounded-full transition-all duration-500",
+            "absolute start-[16%] top-4 h-0.5 -translate-y-1/2 rounded-full transition-all duration-500",
             activeLine,
           )}
           style={{ width: current === 1 ? "0%" : current === 2 ? "34%" : "68%" }}

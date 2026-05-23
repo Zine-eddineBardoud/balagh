@@ -1,5 +1,8 @@
+"use client";
+
 import { Car } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { useLanguage } from "@/context/language-context";
 
 interface LicensePlateCardProps {
   plate: string;
@@ -12,6 +15,8 @@ export function LicensePlateCard({
   variant = "officer",
   verified = true,
 }: LicensePlateCardProps) {
+  const { t } = useLanguage();
+
   return (
     <div
       className={cn(
@@ -23,11 +28,11 @@ export function LicensePlateCard({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-sm font-medium text-blue-100">
             <Car className="h-4 w-4" strokeWidth={2} />
-            License plate
+            {t.common.licensePlate}
           </div>
           {verified && (
             <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-              Matched
+              {t.common.matched}
             </span>
           )}
         </div>

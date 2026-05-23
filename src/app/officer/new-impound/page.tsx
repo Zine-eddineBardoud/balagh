@@ -10,11 +10,13 @@ import { InfoCard } from "@/components/InfoCard";
 import { OfficerNotesField } from "@/components/OfficerNotesField";
 import { ContinueButton } from "@/components/ContinueButton";
 import { useImpound } from "@/context/impound-context";
-import { statusOptions, violationOptions } from "@/data/mock";
+import { useLanguage } from "@/context/language-context";
+import { statusOptions, violationOptions } from "@/i18n/translations";
 
 export default function NewImpoundPage() {
   const router = useRouter();
   const { draft, updateDraft } = useImpound();
+  const { t } = useLanguage();
 
   function handleContinue() {
     router.push("/officer/document-assign");
@@ -24,34 +26,38 @@ export default function NewImpoundPage() {
     <MobileShell
       gradient="officer"
       backHref="/officer"
-      footer={<ContinueButton onClick={handleContinue} label="Continue" />}
+      footer={
+        <ContinueButton
+          onClick={handleContinue}
+          label={t.common.continue}
+        />
+      }
     >
       <StepProgress current={2} />
       <PageHeader
-        title="New impound"
-        subtitle="Verify registry data, then set violation and status."
+        title={t.officer.newImpoundTitle}
+        subtitle={t.officer.newImpoundSubtitle}
       />
 
       <div className="mt-6 flex flex-col gap-5">
         <LicensePlateCard plate={draft.licensePlate} />
-
         <RegistrySummaryCard draft={draft} />
 
         <div className="flex gap-3">
           <InfoCard
-            label="Violation"
+            label={t.common.violation}
             value={draft.violation}
             readOnly={false}
-            options={violationOptions}
-            helperText="Select the violation type."
+            options={violationOptions(t)}
+            helperText={t.officer.selectViolation}
             onChange={(v) => updateDraft({ violation: v })}
           />
           <InfoCard
-            label="Status"
+            label={t.common.status}
             value={draft.status}
             readOnly={false}
-            options={statusOptions}
-            helperText="Select the current status."
+            options={statusOptions(t)}
+            helperText={t.officer.selectStatus}
             onChange={(v) => updateDraft({ status: v })}
           />
         </div>

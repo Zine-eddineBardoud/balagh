@@ -16,6 +16,7 @@ import {
   lookupRegistry,
   garages,
 } from "@/data/mock";
+import { DEFAULT_VIOLATION, normalizeViolationCode } from "@/data/violations";
 
 const STORAGE_KEY = "car-impound-simulation";
 
@@ -65,7 +66,7 @@ function buildDefaultDraft(): ImpoundDraft {
     vehicleColor: registry.vehicleColor,
     ownerName: registry.ownerName,
     ownerPhone: registry.ownerPhone,
-    violation: "No parking",
+    violation: DEFAULT_VIOLATION,
     status: "Towed",
     garageId: garages[0].id,
     scannedAt: formatTime(),
@@ -83,11 +84,7 @@ const initialState: ImpoundState = {
 };
 
 function normalizeViolation(value: string): ViolationType {
-  const lower = value.toLowerCase();
-  if (lower.includes("parking")) return "No Parking";
-  if (lower.includes("meter")) return "Expired meter";
-  if (lower.includes("driveway")) return "Blocking driveway";
-  return "No Parking";
+  return normalizeViolationCode(value);
 }
 
 function normalizeStatus(value: string): ImpoundStatus {

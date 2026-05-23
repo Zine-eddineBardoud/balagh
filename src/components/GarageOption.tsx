@@ -1,5 +1,8 @@
+"use client";
+
 import { MapPin } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { useLanguage } from "@/context/language-context";
 
 interface GarageOptionProps {
   name: string;
@@ -16,12 +19,14 @@ export function GarageOption({
   selected,
   onSelect,
 }: GarageOptionProps) {
+  const { t } = useLanguage();
+
   return (
     <button
       type="button"
       onClick={onSelect}
       className={cn(
-        "btn-press flex w-full items-center gap-3 rounded-2xl border-2 p-4 text-left transition-all",
+        "btn-press flex w-full items-center gap-3 rounded-2xl border-2 p-4 text-start transition-all",
         selected
           ? "border-blue-500 bg-blue-50/80 shadow-sm shadow-blue-500/10"
           : "border-slate-200 bg-white hover:border-slate-300",
@@ -38,10 +43,10 @@ export function GarageOption({
       <div className="min-w-0 flex-1">
         <p className="truncate text-xs font-medium text-slate-500">{name}</p>
         <p className="mt-0.5 font-bold text-slate-900">
-          {distanceKm} km
+          {distanceKm} {t.common.km}
           <span className="font-normal text-slate-500"> · </span>
           <span className={isOpen ? "text-emerald-600" : "text-rose-500"}>
-            {isOpen ? "Open now" : "Closed"}
+            {isOpen ? t.common.openNow : t.common.closed}
           </span>
         </p>
       </div>

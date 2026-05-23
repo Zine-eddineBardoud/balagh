@@ -1,4 +1,5 @@
 import type { Garage, ImpoundRecord, FeeBreakdown } from "@/types/impound";
+import { DEFAULT_VIOLATION } from "@/data/violations";
 
 export const MOCK_PLATE = "12345 - B - 33";
 export const MOCK_PLATE_DOCUMENT = "12345 - A - 33";
@@ -13,8 +14,8 @@ export interface VehicleRegistry {
 
 export const REGISTRY_BY_PLATE: Record<string, VehicleRegistry> = {
   [MOCK_PLATE]: {
-    ownerName: "Ahmed Benali",
-    ownerPhone: "+212 6•• •• 45 78",
+    ownerName: "Zine-eddine Bardoud",
+    ownerPhone: "+212 6•• •• 08 15",
     vehicleModel: MOCK_VEHICLE,
     vehicleColor: "Grey",
   },
@@ -38,9 +39,9 @@ export const defaultImpound: ImpoundRecord = {
   licensePlate: MOCK_PLATE,
   vehicleModel: MOCK_VEHICLE,
   vehicleColor: "Grey",
-  ownerName: "Ahmed Benali",
-  ownerPhone: "+212 6•• •• 45 78",
-  violation: "No Parking",
+  ownerName: "Zine-eddine Bardoud",
+  ownerPhone: "+212 6•• •• 08 15",
+  violation: DEFAULT_VIOLATION,
   status: "Towed",
   towedAt: "today, 09:34",
   scannedAt: "today, 09:34",
@@ -82,12 +83,6 @@ export const fees: FeeBreakdown = {
 export function totalDue(f: FeeBreakdown): number {
   return f.towingFee + f.storageDays * f.storagePerDay;
 }
-
-export const violationOptions = [
-  { value: "No parking", label: "No parking" },
-  { value: "Expired meter", label: "Expired meter" },
-  { value: "Blocking driveway", label: "Blocking driveway" },
-] as const;
 
 export const statusOptions = [
   { value: "Towed", label: "Towed" },

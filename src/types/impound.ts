@@ -1,4 +1,6 @@
-export type ViolationType = "No parking" | "No Parking" | "Expired meter" | "Blocking driveway";
+import type { ViolationCode } from "@/data/violations";
+
+export type ViolationType = ViolationCode;
 export type ImpoundStatus = "Towed" | "Pending tow" | "Released";
 
 export interface ImpoundRecord {

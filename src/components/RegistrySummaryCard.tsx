@@ -1,5 +1,8 @@
+"use client";
+
 import { Car, Clock, MapPin, Phone, User } from "lucide-react";
 import type { ImpoundDraft } from "@/context/impound-context";
+import { useLanguage } from "@/context/language-context";
 
 interface RegistrySummaryCardProps {
   draft: Pick<
@@ -19,30 +22,36 @@ export function RegistrySummaryCard({
   draft,
   compact = false,
 }: RegistrySummaryCardProps) {
+  const { t } = useLanguage();
+
   const rows = [
     {
       icon: User,
-      label: "Owner",
+      label: t.common.owner,
       value: draft.ownerName,
       sub: draft.ownerPhone,
+      showPhone: true,
     },
     {
       icon: Car,
-      label: "Vehicle",
+      label: t.common.vehicle,
       value: draft.vehicleModel,
-      sub: `Color · ${draft.vehicleColor}`,
+      sub: `${t.common.color} · ${draft.vehicleColor}`,
+      showPhone: false,
     },
     {
       icon: MapPin,
-      label: "Location",
+      label: t.common.location,
       value: draft.scanAddress,
       sub: draft.scanCoordinates,
+      showPhone: false,
     },
     {
       icon: Clock,
-      label: "Scanned at",
+      label: t.common.scannedAt,
       value: draft.scannedAt,
-      sub: "GPS & timestamp logged",
+      sub: t.officer.gpsLogged,
+      showPhone: false,
     },
   ];
 
@@ -50,13 +59,15 @@ export function RegistrySummaryCard({
     <div className="card-surface animate-fade-up stagger-3 overflow-hidden">
       <div className="border-b border-slate-100 bg-slate-50/80 px-4 py-3">
         <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
-          Auto-filled from registry
+          {t.officer.registryTitle}
         </p>
-        <p className="mt-0.5 text-[11px] text-slate-400">
-          Verify before continuing
-        </p>
+        <p className="mt-0.5 text-[11px] text-slate-400">{t.officer.registryHint}</p>
       </div>
-      <ul className={compact ? "divide-y divide-slate-100" : "space-y-0 divide-y divide-slate-100"}>
+      <ul
+        className={
+          compact ? "divide-y divide-slate-100" : "divide-y divide-slate-100"
+        }
+      >
         {rows.map((row) => (
           <li key={row.label} className="flex gap-3 px-4 py-3.5">
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
@@ -71,7 +82,7 @@ export function RegistrySummaryCard({
               </p>
               {row.sub && (
                 <p className="mt-0.5 flex items-center gap-1 text-xs text-slate-500">
-                  {row.label === "Owner" && (
+                  {row.showPhone && (
                     <Phone className="h-3 w-3 shrink-0 opacity-60" />
                   )}
                   {row.sub}

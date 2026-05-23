@@ -11,6 +11,7 @@ import { ReleaseCodeCard } from "@/components/ReleaseCodeCard";
 import { OwnerEmptyState } from "@/components/OwnerEmptyState";
 import { ContinueButton } from "@/components/ContinueButton";
 import { useImpound } from "@/context/impound-context";
+import { useLanguage } from "@/context/language-context";
 
 export default function PayRetrievePage() {
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function PayRetrievePage() {
     completePayment,
     resetSimulation,
   } = useImpound();
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(false);
 
   const paid = isPaid && Boolean(releaseCode);
@@ -34,7 +36,7 @@ export default function PayRetrievePage() {
   if (!hasActiveImpound && !paid) {
     return (
       <MobileShell gradient="owner" backHref="/owner">
-        <PageHeader title="Pay & retrieve" />
+        <PageHeader title={t.owner.payRetrieve} />
         <div className="mt-8">
           <OwnerEmptyState />
         </div>
@@ -59,18 +61,16 @@ export default function PayRetrievePage() {
           <ContinueButton
             onClick={handleDone}
             variant="green"
-            label="Done"
+            label={t.common.done}
             showArrow={false}
           />
         ) : undefined
       }
     >
       <PageHeader
-        title="Pay & retrieve"
+        title={t.owner.payRetrieve}
         subtitle={
-          paid
-            ? "Show your release code at the garage, then tap Done when finished."
-            : "Navigate to the garage, pay fees, and receive your release code."
+          paid ? t.owner.payRetrievePaidSubtitle : t.owner.payRetrieveSubtitle
         }
       />
 
@@ -120,12 +120,12 @@ export default function PayRetrievePage() {
             {loading ? (
               <span className="flex items-center gap-2">
                 <span className="h-5 w-5 animate-spin rounded-full border-2 border-[var(--owner)] border-t-transparent" />
-                Processing…
+                {t.owner.processing}
               </span>
             ) : (
               <>
                 <CreditCard className="h-5 w-5" />
-                Pay & get release code
+                {t.owner.payGetCode}
               </>
             )}
           </button>
