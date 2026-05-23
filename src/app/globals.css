@@ -27,7 +27,8 @@
   --color-muted: var(--muted);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
+  --font-heading: var(--font-bebas), var(--font-poppins), sans-serif;
 }
 
 @keyframes fade-up {
@@ -145,16 +146,36 @@ body {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-sans);
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--light);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.65rem center;
-  padding-right: 2rem;
+  padding-inline-end: 2rem;
+}
+
+[dir="rtl"] select {
+  background-position: left 0.65rem center;
 }
 
 select:focus-visible,

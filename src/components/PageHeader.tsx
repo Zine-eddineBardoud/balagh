@@ -17,7 +17,7 @@ export function PageHeader({
     <header className={cn("animate-fade-up", className)}>
       <h1
         className={cn(
-          "text-[1.65rem] font-bold tracking-tight",
+          "font-heading text-[1.65rem] leading-none tracking-wide",
           light ? "text-white" : "text-dark",
         )}
       >

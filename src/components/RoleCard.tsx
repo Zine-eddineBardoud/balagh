@@ -31,7 +31,7 @@ export function RoleCard({
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-2">
-            <p className="text-lg font-bold text-dark">{title}</p>
+            <p className="font-heading text-lg text-dark">{title}</p>
             <ChevronRight className="h-5 w-5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
           </div>
           <p className="mt-1 text-sm leading-relaxed text-muted">{description}</p>

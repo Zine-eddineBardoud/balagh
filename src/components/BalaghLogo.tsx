@@ -3,10 +3,10 @@ import { cn } from "@/lib/cn";
 import { BALAGH_LOGO_PATH } from "@/lib/brand";
 
 const sizeStyles = {
-  xs: "h-14 w-[10.5rem]",
-  sm: "h-14 w-[10.5rem]",
-  md: "h-14 w-[10.5rem]",
-  lg: "h-14 w-[10.5rem]",
+  xs: "h-24 w-24",
+  sm: "h-32 w-32",
+  md: "h-40 w-40",
+  lg: "h-48 w-48",
 } as const;
 
 interface BalaghLogoProps {

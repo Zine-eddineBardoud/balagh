@@ -16,8 +16,8 @@ export default function HomePage() {
       </div>
 
       <header className="animate-fade-up mb-8 text-center">
-        <BalaghLogo priority size="sm" className="mb-4" />
-        <h1 className="text-[1.75rem] font-bold leading-tight tracking-tight text-dark">
+        <BalaghLogo priority size="sm" className="mb-4 mt-12" />
+        <h1 className="font-heading text-[2rem] leading-none tracking-wide text-dark">
           {t.home.tagline}
           <br />
           <span className="text-primary">{t.home.taglineHighlight}</span>

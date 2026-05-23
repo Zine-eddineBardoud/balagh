@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Bebas_Neue, Poppins } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import { BALAGH_LOGO_PATH } from "@/lib/brand";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -37,7 +44,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geist.variable} h-full`}>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${bebasNeue.variable} h-full`}
+    >
       <body className="min-h-dvh bg-light font-sans text-dark antialiased">
         <Providers>{children}</Providers>
       </body>

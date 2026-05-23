@@ -38,8 +38,8 @@ export function LicensePlateCard({
         </div>
         <p
           className={cn(
-            "mt-5 text-center font-extrabold tracking-[0.12em] text-white",
-            variant === "document" ? "text-3xl" : "text-[2rem] leading-tight",
+            "font-heading mt-5 text-center tracking-[0.12em] text-white",
+            variant === "document" ? "text-4xl" : "text-[2.25rem] leading-none",
           )}
         >
           {plate}
